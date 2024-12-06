@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import Register from "./components/Register";
+import Login from "./components/Login";
+import Landing from "./components/Landing";
+import About from './components/AboutUs';
+import Analysis from './components/Analyze';
+import Guide from './components/Cricknowledge';
+const App = () => {
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
-function App() {
+  const handleSetToken = (token) => {
+    localStorage.setItem("token", token);
+    setToken(token);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+      <Routes>
+        {/* Default route (Register page) */}
+        <Route path="/" element={<Navigate to="/register" />} />
+        
+        {/* Register page */}
+        <Route path="/register" element={<Register />} />
+        
+        {/* Login page */}
+        <Route path="/login" element={<Login setToken={handleSetToken} />} />
+        
+        {/* Landing page (protected route) */}
+        <Route
+          path="/landing"
+          element={token ? <Landing /> : <Navigate to="/" />}
+        />
+         <Route
+          path="/landing"
+          element={token ? <Landing /> : <Navigate to="/landing" />}
+        />
+        {/* <Route path="/Analysis" element={<Analysis />} /> */}
+          <Route path="/About" element={<About />} />
+          <Route path="/Guide" element={<Guide />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

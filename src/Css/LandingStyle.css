@@ -1,0 +1,105 @@
+
+.mainSection {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(92, 92, 237) ;
+    min-height: 90vh;
+
+    
+}
+
+.des {
+    text-align: center;
+    margin: auto 0;
+    width: 45%;
+}
+.des h1 {
+    margin-bottom: 50px;
+}
+.des p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+.mainImage {
+    width: 40%;
+    
+}
+.image {
+object-fit: contain;
+width: 300px;
+}
+
+.startBtn {
+    background-color: #1DB954; 
+    color: white; 
+    font-size: 1.2rem; 
+    padding: 12px 24px; 
+    border: none; 
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+.startBtn:hover {
+    background-color: #159b42;
+    transform: scale(1.05);
+}
+
+/* Tablet and Mobile View */
+@media screen and (max-width: 768px) {
+    .mainSection {
+        flex-direction: column; /* Stack sections vertically */
+        min-height: auto; /* Remove minimum height for better flow */
+        padding: 20px; /* Add padding for smaller screens */
+    }
+
+    .des {
+        width: 100%; /* Make description full width */
+        text-align: center; /* Center text for better readability */
+        margin-bottom: 20px; /* Add spacing between sections */
+    }
+
+    .des h1 {
+        font-size: 1.8rem; /* Adjust font size for headings */
+        margin-bottom: 30px; /* Reduce margin below heading */
+    }
+
+    .des p {
+        font-size: 1.2rem; /* Adjust font size for paragraphs */
+    }
+
+    .mainImage {
+        width: 100%; /* Make image section full width */
+        display: flex; /* Allow for centered alignment */
+        justify-content: center; /* Center the image */
+        margin-bottom: 20px; /* Space below the image */
+    }
+
+    .image {
+        width: 80%; /* Make the image responsive */
+        max-width: 300px; /* Limit maximum width for larger screens */
+    }
+
+    .startBtn {
+        width: 100%; /* Make button full width */
+        padding: 12px; /* Adjust padding */
+        font-size: 1rem; /* Adjust font size for buttons */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .des h1 {
+        font-size: 1.5rem; /* Further adjust heading size */
+    }
+
+    .des p {
+        font-size: 1rem; /* Smaller font size for paragraphs */
+    }
+
+    .startBtn {
+        padding: 10px; /* Adjust button padding for mobile */
+        font-size: 0.9rem; /* Adjust button font size */
+    }
+}
